@@ -1,0 +1,55 @@
+{
+  "name": "storage-layout-verifier",
+  "version": "0.1.0",
+  "description": "To verify the storage layout of the two smart contracts",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "start": "node lib/index.js",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "build": "rm -rf lib && tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/satyamakgec/storage-layout-verifier.git"
+  },
+  "keywords": [
+    "solidity",
+    "storage",
+    "evm",
+    "ethereum"
+  ],
+  "author": "Satyam Agrawal <satyam0499@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/satyamakgec/storage-layout-verifier/issues"
+  },
+  "homepage": "https://github.com/satyamakgec/storage-layout-verifier#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.0",
+    "@types/node": "^10.12.21",
+    "jest": "^24.1.0",
+    "prettier": "^1.16.4",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.1"
+  },
+  "dependencies": {
+    "@types/lodash.flatten": "^4.4.4",
+    "@types/lodash.keys": "^4.2.4",
+    "@types/lodash.values": "^4.3.4",
+    "lodash.flatten": "^4.4.0",
+    "lodash.keys": "^4.2.0",
+    "lodash.values": "^4.3.0"
+  }
+}
